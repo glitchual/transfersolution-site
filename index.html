@@ -21,49 +21,20 @@
       max-width: 500px;
       width: 100%;
     }
-    h1 {
-      color: #1d4ed8; /* красивый синий */
-      text-align: center;
-    }
-    p {
-      font-size: 14px;
-      color: #555;
-      text-align: center;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
+    h1 { color: #1d4ed8; text-align: center; }
+    p { font-size: 14px; color: #555; text-align: center; }
+    form { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
     input[type="email"] {
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      width: 100%;
-      box-sizing: border-box;
+      padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 100%; box-sizing: border-box;
     }
     input[type="submit"] {
-      background-color: #1d4ed8;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.2s;
+      background-color: #1d4ed8; color: white; padding: 10px; border: none; border-radius: 5px;
+      cursor: pointer; font-weight: bold; transition: background-color 0.2s;
     }
-    input[type="submit"]:hover {
-      background-color: #2563eb;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .small {
-      font-size: 12px;
-      color: #888;
-      text-align: center;
-    }
+    input[type="submit"]:hover { background-color: #2563eb; }
+    .section { margin-bottom: 30px; }
+    .small { font-size: 12px; color: #888; text-align: center; }
+    .message { color: green; font-weight: bold; text-align: center; margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -73,24 +44,37 @@
 
     <div class="section">
       <h2>Subscribe</h2>
-      <form action="#" method="POST">
+      <form id="subscribeForm">
         <input type="email" placeholder="Enter your email" required>
         <input type="submit" value="Subscribe">
       </form>
+      <div id="subscribeMessage" class="message" style="display:none;">✅ You are subscribed!</div>
       <p class="small">By subscribing, you agree to receive informational emails. Single opt-in.</p>
     </div>
 
     <div class="section">
       <h2>Unsubscribe</h2>
-      <form action="#" method="POST">
+      <form id="unsubscribeForm">
         <input type="email" placeholder="Enter your email to unsubscribe" required>
         <input type="submit" value="Unsubscribe">
       </form>
+      <div id="unsubscribeMessage" class="message" style="display:none;">✅ You are unsubscribed!</div>
       <p class="small">Use this form to stop receiving notifications at any time.</p>
     </div>
 
     <p class="small">Contact: hashby00@gmail.com</p>
     <p class="small">© Twin Mailer 2026</p>
   </div>
+
+  <script>
+    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('subscribeMessage').style.display = 'block';
+    });
+    document.getElementById('unsubscribeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('unsubscribeMessage').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
